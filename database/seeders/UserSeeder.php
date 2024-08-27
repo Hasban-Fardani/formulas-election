@@ -30,5 +30,47 @@ class UserSeeder extends Seeder
             'email' => 'user2@localhost.test',
             'role' => 'user'
         ]);
+
+        // candidate 1
+        // leader
+        User::factory()->create([
+            'name' => 'Zaki',
+            'email' => 'zaki@localhost.test',
+            'role' => 'user',
+        ]);
+        // co leader
+        User::factory()->create([
+            'name' => 'Agam',
+            'email' => 'agam@localhost.test',
+            'role' => 'user',
+        ]);
+
+        // candidate 2
+        // leader
+        User::factory()->create([
+            'name' => 'dava',
+            'email' => 'dava@localhost.test',
+            'role' => 'user',
+        ]);
+        // co leader
+        User::factory()->create([
+            'name' => 'gultom',
+            'email' => 'gultom@localhost.test',
+            'role' => 'user',
+        ]);
+
+        // candidate 3
+        // leader
+        User::factory()->create([
+            'name' => 'pice',
+            'email' => 'pice@localhost.test',
+            'role' => 'user',
+        ]);
+        // co leader
+        User::factory()->create([
+            'name' => 'hasban',
+            'email' => 'hasban@localhost.test',
+            'role' => 'user',
+        ]);
     }
 }
