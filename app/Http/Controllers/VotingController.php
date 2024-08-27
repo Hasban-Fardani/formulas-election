@@ -31,10 +31,10 @@ class VotingController extends Controller
         $candidates = $election->candidates()->get();
         $data = $candidates->map(function ($candidate) {
             return [
-                'name' => $candidate->name,
+                'candidate' => $candidate,
                 'votes' => $candidate->votes()->count()
             ];
         });
-        return view('election.results', compact('election', 'data', 'candidates'));
+        return view('election.results', compact('election', 'data'));
     }
 }
