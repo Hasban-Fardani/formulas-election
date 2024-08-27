@@ -12,7 +12,8 @@ class ElectionController extends Controller
      */
     public function index()
     {
-        return view('election.list');
+        $elections = Election::latest()->paginate(10);
+        return view('election.list', compact('elections'));
     }
 
     /**
