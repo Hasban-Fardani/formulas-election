@@ -2,20 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Election;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -23,6 +14,7 @@ class HomeController extends Controller
      */
     public function __invoke()
     {   
-        return view('home');
+        $elections = Election::active()->get();
+        return view('home', compact('elections'));
     }
 }
