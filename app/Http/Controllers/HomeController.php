@@ -14,7 +14,8 @@ class HomeController extends Controller
      */
     public function __invoke()
     {   
+        $user = auth()->user();
         $elections = Election::active()->get();
-        return view('home', compact('elections'));
+        return view('home', compact('elections', 'user'));
     }
 }

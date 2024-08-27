@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="container">
+    <a href="{{ route('home') }}" class="btn btn-primary">Kembali</a>
     <h2 class="text-center">{{ $election->title }}</h2>
 
     <div>

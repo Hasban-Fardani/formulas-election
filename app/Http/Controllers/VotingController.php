@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Candidate;
 use App\Models\Election;
+use App\Models\Vote;
 use Illuminate\Http\Request;
 
 class VotingController extends Controller
@@ -16,6 +17,24 @@ class VotingController extends Controller
 
     public function vote(Candidate $candidate)
     {
-        return 'voted';
+        Vote::create([
+            'user_id' => auth()->user()->id,
+            'candidate_id' => $candidate->id,
+            'election_id' => $candidate->election_id
+        ]);
+
+        return redirect()->route('home');
+    }
+
+    public function results(Election $election)
+    {
+        $candidates = $election->candidates()->get();
+        $data = $candidates->map(function ($candidate) {
+            return [
+                'name' => $candidate->name,
+                'votes' => $candidate->votes()->count()
+            ];
+        });
+        return view('election.results', compact('election', 'data', 'candidates'));
     }
 }

@@ -11,8 +11,12 @@
                     <h6>Waktu</h6>
                     <p>{{  date('d-m-Y', strtotime($election->start_time))  }} - {{ date('d-m-Y', strtotime($election->end_time)) }}</p>
                 </div>
-                
-                <a href="{{ route('election.show-public', $election) }}" class="btn btn-primary">Vote</a>
+            
+                @if ($user->canVote($election))
+                    <a href="{{ route('election.show-public', $election) }}" class="btn btn-primary">Vote</a>
+                @else
+                    <a href="{{ route('election.results', $election) }}">Lihat hasil</a>
+                @endif
             </div>
         </div>
     @endforeach

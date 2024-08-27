@@ -17,8 +17,8 @@ class CandidateSeeder extends Seeder
             'name' => 'Paslon no. 1',
             'vision' => 'Membangun komunitas it',
             'mission' => 'Mengadakan kumpul rutin seminggu sekali',
-            'leader_id' => 3,
-            'co_leader_id' => 4,
+            'leader_id' => 4,
+            'co_leader_id' => 5,
             'election_id' => 1
         ]);
 
@@ -26,8 +26,8 @@ class CandidateSeeder extends Seeder
             'name' => 'Paslon no. 2',
             'vision' => 'Membangun komunitas it',
             'mission' => 'Mengadakan kumpul rutin seminggu sekali',
-            'leader_id' => 5,
-            'co_leader_id' => 6,
+            'leader_id' => 6,
+            'co_leader_id' => 7,
             'election_id' => 1
         ]);
 
@@ -35,8 +35,8 @@ class CandidateSeeder extends Seeder
             'name' => 'Paslon no. 3',
             'vision' => 'Membangun komunitas it',
             'mission' => 'Mengadakan kumpul rutin seminggu sekali',
-            'leader_id' => 7,
-            'co_leader_id' => 8,
+            'leader_id' => 8,
+            'co_leader_id' => 9,
             'election_id' => 1
         ]);
     }

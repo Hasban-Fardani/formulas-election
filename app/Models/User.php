@@ -44,4 +44,23 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
+
+    public function canVote($election)
+    {
+        // check election is active
+        $validElection = $election->active() && $election->start_time <= now() && $election->end_time >= now();
+        
+        // check user has not voted
+        $hasVoted = $this->votes()->where('election_id', $election->id)->exists();
+
+        // check user is not admin
+        $isNotAdmin = $this->role !== 'admin';
+
+        return $validElection && !$hasVoted && $isNotAdmin; 
+    }
 }
