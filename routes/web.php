@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminDasboardController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,6 +17,8 @@ Route::middleware('auth')->group(function () {
     Route::post('vote/{candidate}', [App\Http\Controllers\VotingController::class, 'vote'])->name('vote');
 
     Route::middleware('can:admin')->prefix('/admin')->group(function () {
+        Route::get('/', AdminDasboardController::class)->name('admin.dashboard');
         Route::resource('election', App\Http\Controllers\ElectionController::class);
+        Route::resource('user', App\Http\Controllers\UserController::class);
     });
 });

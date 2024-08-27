@@ -12,7 +12,7 @@ class ElectionController extends Controller
      */
     public function index()
     {
-        //
+        return view('election.list');
     }
 
     /**
@@ -20,7 +20,7 @@ class ElectionController extends Controller
      */
     public function create()
     {
-        //
+        return view('election.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class ElectionController extends Controller
      */
     public function show(Election $election)
     {
-        //
+        return view('election.show', compact('election'));
     }
 
     /**
@@ -44,21 +44,13 @@ class ElectionController extends Controller
      */
     public function edit(Election $election)
     {
-        //
+        return view('election.edit', compact('election'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Election $election)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Election $election)
     {
         //
     }
