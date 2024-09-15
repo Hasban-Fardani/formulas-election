@@ -16,11 +16,38 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <x-head.tinymce-config/>
+    @stack('css')
 </head>
 
 <body>
-    <div id="app" class="d-flex flex-nowrap h-100" style="min-height: 100vh">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark h-100" style="width: 280px; min-height: 100vh">
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    @endif
+
+    @if (session('errors'))
+        <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: '{{ session('errors->first()') }}',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    @endif
+    
+    <div id="app" class="d-flex flex-nowrap" style="min-height: 100vh">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; min-height: 100vh">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <svg class="bi pe-none me-2" width="40" height="32">
                     <use xlink:href="#bootstrap"></use>
@@ -38,7 +65,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('election.index') }}" class="nav-link text-white {{ Route::current()->getName() == 'election.index' ? 'active' : '' }}">
+                    <a href="{{ route('admin.election.index') }}" class="nav-link text-white {{ Route::current()->getName() == 'admin.election.index' ? 'active' : '' }}">
                         <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#speedometer2"></use>
                         </svg>
@@ -54,7 +81,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('user.index') }}" class="nav-link text-white {{ Route::current()->getName() == 'user.index' ? 'active' : '' }}">
+                    <a href="{{ route('admin.user.index') }}" class="nav-link text-white {{ Route::current()->getName() == 'admin.user.index' ? 'active' : '' }}">
                         <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
@@ -86,7 +113,7 @@
                 </ul>
             </div>
         </div>
-        <main class="p-4">
+        <main class="p-4 w-100">
             @yield('content')
         </main>
     </div>

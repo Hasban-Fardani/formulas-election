@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminDasboardController extends Controller
+class DasboardController extends Controller
 {
     public function __invoke(Request $request)
     {

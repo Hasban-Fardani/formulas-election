@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Election extends Model
 {
     use HasFactory;
+    
+    protected $guarded = ['id'];
 
     public function candidates()
     {
@@ -17,5 +19,15 @@ class Election extends Model
     public function scopeActive($query)
     {
         return $query->where('start_time', '<=', now())->where('end_time', '>=', now());
+    }
+
+    public function scopeIsActive()
+    {
+        return $this->start_time <= now() && $this->end_time >= now();
+    }
+
+    public function scopeHasCandidate()
+    {
+        return $this->candidates()->count() > 0;
     }
 }

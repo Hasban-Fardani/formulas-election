@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('candidates', function (Blueprint $table) {
             $table->id();
+            $table->integer('number');
+            $table->string('image')->nullable();
             $table->string('name');
             $table->string('vision');
             $table->string('mission');
-            $table->foreignId('leader_id')->constrained('users');
-            $table->foreignId('co_leader_id')->constrained('users');
+            $table->foreignId('leader_id')->nullable()->constrained('users');
+            $table->foreignId('co_leader_id')->nullable()->constrained('users');
             $table->foreignId('election_id')->constrained();
             $table->timestamps();
         });

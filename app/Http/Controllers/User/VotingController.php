@@ -1,29 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use App\Models\Candidate;
 use App\Models\Election;
 use App\Models\Vote;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VotingController extends Controller
 {
     public function election(Election $election)
     {
         $election->load('candidates');
-        return view('election.public', compact('election'));
+        return view('user.election.list', compact('election'));
     }
 
     public function vote(Candidate $candidate)
     {
         Vote::create([
-            'user_id' => auth()->user()->id,
+            'user_id' => Auth::user()->id,
             'candidate_id' => $candidate->id,
             'election_id' => $candidate->election_id
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('user.home');
     }
 
     public function results(Election $election)
@@ -35,6 +36,6 @@ class VotingController extends Controller
                 'votes' => $candidate->votes()->count()
             ];
         });
-        return view('election.results', compact('election', 'data'));
+        return view('user.election.results', compact('election', 'data'));
     }
 }

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use App\Models\Election;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -13,9 +14,9 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function __invoke()
-    {   
-        $user = auth()->user();
+    {
+        $user = Auth::user();
         $elections = Election::active()->get();
-        return view('home', compact('elections', 'user'));
+        return view('user.home', compact('elections', 'user'));
     }
 }
