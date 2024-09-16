@@ -13,7 +13,7 @@ Route::middleware('auth')->group(function () {
     Route::name('user.')->group(function () {
         Route::get('/home', App\Http\Controllers\User\HomeController::class)
             ->name('home');
-        Route::get('election/{election}', [App\Http\Controllers\User\VotingController::class, 'election'])
+        Route::get('election/{election}', [App\Http\Controllers\User\VotingController::class, 'show'])
             ->name('election.show');
         Route::get('election/{election}/results', [App\Http\Controllers\User\VotingController::class, 'results'])
             ->name('election.results');

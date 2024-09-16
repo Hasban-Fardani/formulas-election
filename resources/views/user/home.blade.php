@@ -6,7 +6,7 @@
     @foreach ( $elections as $election)
         <div class="card bg-white" style="width: 18rem;">
             <div class="card-body">
-                <h4 class="card-title">{{ $election->title }}</h4>
+                <h4 class="card-title fw-semibold">{{ $election->title }}</h4>
                 
                 <div>
                     <h6>Waktu Pelaksanaan:</h6>
@@ -17,7 +17,10 @@
                     @if ($user->canVote($election))
                         <a href="{{ route('user.election.show', $election) }}" class="btn btn-primary">Vote</a>
                     @else
-                        <a href="{{ route('user.election.results', $election) }}">Lihat hasil</a>
+                        <div>
+                            <p>Anda sudah memilih</p>
+                            <a href="{{ route('user.election.results', $election) }}">Lihat hasil</a>
+                        </div>
                     @endif
                 </div>
             </div>

@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class VotingController extends Controller
 {
-    public function election(Election $election)
+    public function show(Election $election)
     {
         $election->load('candidates');
-        return view('user.election.list', compact('election'));
+        return view('user.election.show', compact('election'));
     }
 
     public function vote(Candidate $candidate)

@@ -47,7 +47,7 @@ class User extends Authenticatable
         return $this->hasMany(Vote::class);
     }
 
-    public function canVote($election)
+    public function canVote(Election $election)
     {
         // check election is active
         $validElection = $election->active() && $election->start_time <= now() && $election->end_time >= now();
@@ -58,6 +58,6 @@ class User extends Authenticatable
         // check user is not admin
         $isNotAdmin = $this->role !== 'admin';
 
-        return $validElection && !$hasVoted && $isNotAdmin; 
+        return $validElection && !$hasVoted && $isNotAdmin;
     }
 }
