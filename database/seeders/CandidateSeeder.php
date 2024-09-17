@@ -14,9 +14,10 @@ class CandidateSeeder extends Seeder
     public function run(): void
     {
         Candidate::create([
-            'name' => 'Paslon no. 1',
+            'image' => 'tirizz.jpeg',
+            'name' => 'Paslon Rois no. 1',
             'number' => 1,
-            'vision' => 'Membangun komunitas it',
+            'vision' => 'Meneruskan yang sudah ada',
             'mission' => 'Mengadakan kumpul rutin seminggu sekali',
             'leader_id' => 4,
             // 'co_leader_id' => 5,
@@ -24,9 +25,10 @@ class CandidateSeeder extends Seeder
         ]);
 
         Candidate::create([
-            'name' => 'Paslon no. 2',
+            'image' => 'tirizz.jpeg',
+            'name' => 'Paslon Rois no. 2',
             'number' => 2,
-            'vision' => 'Membangun komunitas it',
+            'vision' => 'Meneruskan yang sudah ada',
             'mission' => 'Mengadakan kumpul rutin seminggu sekali',
             'leader_id' => 6,
             // 'co_leader_id' => 7,
@@ -34,13 +36,25 @@ class CandidateSeeder extends Seeder
         ]);
 
         Candidate::create([
-            'name' => 'Paslon no. 3',
-            'number' => 3,
-            'vision' => 'Membangun komunitas it',
+            'image' => 'tirizz.jpeg',
+            'name' => 'Paslon Roisah no. 1',
+            'number' => 1,
+            'vision' => 'Meneruskan yang sudah ada',
             'mission' => 'Mengadakan kumpul rutin seminggu sekali',
             'leader_id' => 8,
             // 'co_leader_id' => 9,
-            'election_id' => 1
+            'election_id' => 2
+        ]);
+
+        Candidate::create([
+            'image' => 'tirizz.jpeg',
+            'name' => 'Paslon Roisah no. 2',
+            'number' => 2,
+            'vision' => 'Meneruskan yang sudah ada',
+            'mission' => 'Mengadakan kumpul rutin seminggu sekali',
+            'leader_id' => 8,
+            // 'co_leader_id' => 9,
+            'election_id' => 2
         ]);
     }
 }

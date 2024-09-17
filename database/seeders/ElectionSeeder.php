@@ -14,7 +14,13 @@ class ElectionSeeder extends Seeder
     public function run(): void
     {
         Election::create([
-            'title' => 'Pemilihan ketua dan wakil ketua KOMIT 2024-2025',
+            'title' => 'Pemilihan Rois Angkatan 54',
+            'start_time' => now(),
+            'end_time' => now()->addDays(1),
+        ]);
+
+        Election::create([
+            'title' => 'Pemilihan Roisah Angkatan 54',
             'start_time' => now(),
             'end_time' => now()->addDays(1),
         ]);

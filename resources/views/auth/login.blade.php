@@ -34,11 +34,11 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label for="email" class="text-start">{{ __('NIS') }}</label>
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                            name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <label for="nis" class="text-start">{{ __('NIS') }}</label>
+                        <input id="nis" type="text" class="form-control @error('nis') is-invalid @enderror"
+                            name="nis" value="{{ old('nis') }}" required autofocus>
 
-                        @error('email')
+                        @error('nis')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
