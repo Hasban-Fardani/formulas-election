@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,5 +26,9 @@ class AppServiceProvider extends ServiceProvider
 
         // define admin gate
         Gate::define('admin', fn ($user) => $user->role === 'admin');
+
+        if (env('APP_ENV', 'local') == 'production') {
+            URL::forceScheme('https');
+        }
     }
 }
