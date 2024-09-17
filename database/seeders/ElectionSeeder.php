@@ -15,12 +15,14 @@ class ElectionSeeder extends Seeder
     {
         Election::create([
             'title' => 'Pemilihan Rois Angkatan 54',
+            'image' => 'rois.png',
             'start_time' => now(),
             'end_time' => now()->addDays(1),
         ]);
 
         Election::create([
             'title' => 'Pemilihan Roisah Angkatan 54',
+            'image' => 'roisah.png',
             'start_time' => now(),
             'end_time' => now()->addDays(1),
         ]);

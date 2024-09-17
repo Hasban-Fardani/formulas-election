@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('vision');
             $table->string('mission');
-            $table->foreignId('leader_id')->nullable()->constrained('users');
-            $table->foreignId('co_leader_id')->nullable()->constrained('users');
             $table->foreignId('election_id')->constrained();
             $table->timestamps();
         });

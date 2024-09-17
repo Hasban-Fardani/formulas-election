@@ -11,6 +11,8 @@ Aplikasi Pemilihan IRMA Formulas
         @foreach ( $elections as $election)
         <div class="col-6">
             <div class="card bg-white">
+                <img src="{{ asset('storage/election/' . $election->image) }}" class="card-img-top img-candidate"
+                    alt="Foto {{ $election->title }}">
                 <div class="card-body">
                     <h4 class="card-title fw-semibold">{{ $election->title }}</h4>
                     
@@ -42,3 +44,11 @@ Aplikasi Pemilihan IRMA Formulas
     </div>
 </div>
 @endsection
+@push('css')
+    <style>
+        .img-candidate {
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+    </style>
+@endpush
