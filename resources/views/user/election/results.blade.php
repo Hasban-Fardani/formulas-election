@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+Hasil Pilih
+@endsection
+
 @section('content')
 
 <div class="container">
@@ -13,7 +17,7 @@
     <div class="d-flex justify-content-center align-items-center gap-3">
         @foreach ($data as $d)
             <div class="card bg-white">
-                <img src="{{ asset('storage/candidate/' . $d['candidate']->image) }}" class="card-img-top" alt="Foto {{ $d['candidate']->name }}">
+                <img src="{{ asset('storage/candidate/' . $d['candidate']->image) }}" class="card-img-top img-candidate" alt="Foto {{ $d['candidate']->name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $d['candidate']->name }}</h5>
                     <p>Total Pemilih: {{ $d['votes'] }}</p>
@@ -23,3 +27,12 @@
     </div>
 
 @endsection
+@push('css')
+    <style>
+        .img-candidate {
+            width: 200px;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+    </style>
+@endpush

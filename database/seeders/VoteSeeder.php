@@ -13,10 +13,10 @@ class VoteSeeder extends Seeder
      */
     public function run(): void
     {
-        Vote::create([
-            'user_id' => 2,
-            'candidate_id' => 1,
-            'election_id' => 1
-        ]);
+        // Vote::create([
+        //     'user_id' => 2,
+        //     'candidate_id' => 1,
+        //     'election_id' => 1
+        // ]);
     }
 }

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+{{ $election->title }}
+@endsection
+
 @section('content')
     <div class="container">
         <a href="{{ route('user.home') }}" class="btn btn-secondary">Kembali</a>
@@ -55,6 +59,8 @@
     <style>
         .img-candidate {
             width: 200px !important;
+            aspect-ratio: 1/1;
+            object-fit: cover;
         }
     </style>
 @endpush
