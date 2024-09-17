@@ -66,17 +66,19 @@
                         <th scope="col">Nama Kandidat</th>
                         <th scope="col">Visi</th>
                         <th scope="col">Misi</th>
+                        <th scope="col">Total Vote</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($election->candidates as $candidate)
+                    @foreach ($candidates as $candidate)
                         <tr>
                             <th scope="row">{{ $candidate->number }}</th>
                             <td><img src="{{ asset('storage/candidate/'.$candidate->image) }}" alt="kandidat" width="100" height="100"></td>
                             <td>{{ $candidate->name }}</td>
                             <td>{{ $candidate->vision }}</td>
                             <td>{!! $candidate->mission !!}</td>
+                            <td>{{ $candidate->votes_count }}</td>
                             <td>
                                 <a class="btn btn-warning">Edit</a>
                                

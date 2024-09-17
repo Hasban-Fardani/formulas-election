@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Candidate;
 use App\Models\Election;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -48,7 +49,10 @@ class ElectionController extends Controller
     {
         $edit = $request->input('edit') ?? false;
         $election->load('candidates');
-        return view('admin.election.show', compact('election', 'edit'));
+        $candidates = Candidate::where('election_id', $election->id)
+            ->withCount('votes')
+            ->get();
+        return view('admin.election.show', compact('election', 'edit', 'candidates'));
     }
 
     /**

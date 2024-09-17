@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'nis' => '123123123',
             'password' => Hash::make('Str0ngPw@ssw0rd!'),
+            'role' => 'admin'
         ]);
 
         $this->call([
