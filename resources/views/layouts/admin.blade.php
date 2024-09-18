@@ -37,7 +37,7 @@
         </script>
     @endif
 
-    @if (session('errors'))
+    @if($errors->any())
         <script>
             Swal.fire({
                 position: 'top-end',

@@ -5,7 +5,7 @@
     <h2 class="fw-bold">Daftar User</h2>
     <div>
         <button>Import User</button>
-        <a href="{{ route('admin.user.create') }}" class="btn btn-primary">Buat User Baru</a>
+        <button data-bs-toggle="modal" data-bs-target="#createUserModal" class="btn btn-primary">Buat User Baru</button>
     </div>
 </div>
 
@@ -16,7 +16,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">email</th>
+                    <th scope="col">nis</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
@@ -25,7 +25,7 @@
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->nis }}</td>
                         <td>
                             <a href="{{ route('admin.user.show', $user) }}" class="btn btn-primary">Lihat</a>
                             <a href="{{ route('admin.user.edit', $user) }}" class="btn btn-warning">Edit</a>
@@ -42,6 +42,37 @@
         {{ $users->links() }}
     </div>
 </div>
+
+{{-- Create user modal --}}
+<div class="modal fade" id="createUserModal">
+    <div class="modal-dialog">
+        <div class="modal-content p-4 bg-white">
+            <h2 class="fw-bold">Buat User Baru</h2>
+
+            <form action="{{ route('admin.user.store') }}" method="post">
+                @csrf
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+
+                <div class="mb-3">
+                    <label for="nis" class="form-label">NIS</label>
+                    <input type="number" class="form-control" id="nis" name="nis">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="text" class="form-control" id="password" name="password">
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3 float-end">Buat</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 @endsection
 @push('css')

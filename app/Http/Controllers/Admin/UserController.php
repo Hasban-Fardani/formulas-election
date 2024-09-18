@@ -15,13 +15,9 @@ class UserController extends Controller
     public function index()
     {
         $users = User::query()
+            ->latest()
             ->paginate(10);
         return view('admin.user.list', compact('users'));
-    }
-
-    public function create()
-    {
-        return view('admin.user.create');
     }
 
     /**
@@ -31,9 +27,8 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'email' => 'required|email',
+            'nis' => 'required|string',
             'password' => 'required|string',
-            'role' => 'required|string',
         ]);
 
         if ($validator->fails()) {
@@ -42,12 +37,11 @@ class UserController extends Controller
 
         $user = User::create([
             'name' => $request->name,
-            'email' => $request->email,
+            'nis' => $request->nis,
             'password' => bcrypt($request->password),
-            'role' => $request->role
         ]);
 
-        return redirect()->route('admin.user.index');
+        return redirect()->route('admin.user.index')->with('success', 'User ' . $user->name . ' berhasil dibuat');
     }
     
     /**
@@ -55,7 +49,23 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',
+            'nis' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $user->update([
+            'name' => $request->name,
+            'nis' => $request->nis,
+            'password' => bcrypt($request->password),
+        ]);
+
+        return redirect()->route('admin.user.index')->with('success', 'User ' . $user->name . ' berhasil diubah');
     }
 
     /**
@@ -63,6 +73,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('admin.user.index')->with('success', 'User ' . $user->name . ' berhasil dihapus');
     }
 }
