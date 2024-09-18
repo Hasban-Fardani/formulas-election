@@ -13,9 +13,10 @@
             @foreach ($election->candidates as $candidate)
                 <div class="card bg-white">
                     <img src="{{ asset('storage/candidate/' . $candidate->image) }}" class="card-img-top img-candidate"
-                        alt="Foto {{ $candidate->name }}">
+                        alt="Foto {{ $candidate->name }}"
+                        style="max-width: 300px;word-wrap: break-word;overflow-wrap: break-word;">
                     <div class="card-body">
-                        <h5 class="card-title text-truncate">{{ $candidate->name }}</h5>
+                        <h5 class="card-title text-truncate ">{{ $candidate->name }}</h5>
 
                         <div class="d-flex justify-content-end gap-3">
                             <button class="btn btn-secondary"
