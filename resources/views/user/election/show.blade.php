@@ -20,7 +20,7 @@
 
                         <div class="d-flex justify-content-end gap-3">
                             <button class="btn btn-secondary"
-                                onclick="showVisiMisi('{{ $candidate->name }}', '{{ $candidate->image }}', '{{ $candidate->vision }}', '{{ $candidate->mission }}')">
+                                onclick="showVisiMisi(`{{ $candidate->name }}`, `{{ $candidate->image }}`, `{{ $candidate->vision }}`, `{{ $candidate->mission }}`)">
                                 Visi & Misi
                             </button>
                             <button type="button" class="btn btn-primary"
@@ -101,8 +101,8 @@
 
             console.log(vision, mission);
             let modal = document.getElementById('visiMisiModal');
-            modal = new bootstrap.Modal(modal)
-            modal.show()
+            modal = new bootstrap.Modal(modal);
+            modal.show();
         }
     </script>
 @endpush
