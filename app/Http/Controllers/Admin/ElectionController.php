@@ -60,6 +60,19 @@ class ElectionController extends Controller
      */
     public function update(Request $request, Election $election)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string',
+            'start_time' => 'required|date',
+            'end_time' => 'required|date',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $data = $validator->validated();
+        $election->update($data);
+
+        return redirect()->route('admin.election.index')->with('success', 'Pemilihan berhasil diperbarui');
     }
 }

@@ -29,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
 
         if (env('APP_ENV', 'local') == 'production') {
             URL::forceScheme('https');
+        } else {
+            URL::forceScheme('http');
         }
     }
 }

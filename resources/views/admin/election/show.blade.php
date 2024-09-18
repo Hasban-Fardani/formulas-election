@@ -21,7 +21,7 @@
             <form action="{{ route('admin.election.update', $election) }}" method="post">
                 @csrf
                 @method('put')
-
+                
                 <div class="mb-3">
                     <label for="title" class="form-label">Judul</label>
                     <input type="text" class="form-control" id="title" name="title" value="{{ $election->title }}"
@@ -31,12 +31,12 @@
                 <div class="mb-3 d-flex gap-3 w-100">
                     <div class="w-50">
                         <label for="start_time" class="form-label">Mulai</label>
-                        <input type="datetime-local" class="form-control" id="start_time" name="start_time"
+                        <input type="datetime" class="form-control" id="start_time" name="start_time"
                             value="{{ $election->start_time }}" @disabled(!$edit)>
                     </div>
                     <div class="w-50">
                         <label for="end_time" class="form-label">Selesai</label>
-                        <input type="datetime-local" class="form-control" id="end_time" name="end_time"
+                        <input type="datetime" class="form-control" id="end_time" name="end_time"
                             value="{{ $election->end_time }}" @disabled(!$edit)>
                     </div>
                 </div>
