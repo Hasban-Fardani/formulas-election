@@ -26,7 +26,7 @@
                             @if ($user->canVote($election))
                                 <a href="{{ route('user.election.show', $election) }}" class="btn btn-primary mt-3">Vote</a>
                             @else
-                                <div>
+                                <div class="mt-3">
                                     <h3>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
                                             fill="currentColor" class="bi bi-check-circle text-success" viewBox="0 0 16 16">
