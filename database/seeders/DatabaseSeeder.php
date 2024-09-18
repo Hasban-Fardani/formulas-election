@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,8 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         User::create([
             'name' => 'admin',
-            'nis' => '123123123',
-            'password' => Hash::make('Str0ngPw@ssw0rd!'),
+            'nis' => 'admin',
+            'password' => Hash::make(env('ADMIN_PASSWORD')),
             'role' => 'admin'
         ]);
 
