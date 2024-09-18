@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-{{ $election->title }}
+    {{ $election->title }}
 @endsection
 
 @section('content')
@@ -11,11 +11,13 @@
 
         <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mt-3">
             @foreach ($election->candidates as $candidate)
-                <div class="card bg-white">
+                <div class="card bg-white" style="height: 325px">
                     <img src="{{ asset('storage/candidate/' . $candidate->image) }}" class="card-img-top img-candidate"
                         alt="Foto {{ $candidate->name }}">
-                    <div class="card-body">
-                        <h5 class="card-title text-truncate"  style="max-width: 300px;word-wrap: break-word;overflow-wrap: break-word;">{{ $candidate->name }}</h5>
+                    <div class="card-body" style="word-wrap: break-word;max-width: 200px;">
+                        <h5 class="card-title text-truncate"
+                            style="max-width: 300px;word-wrap: break-word;overflow-wrap: break-word;">{{ $candidate->name }}
+                        </h5>
 
                         <div class="d-flex justify-content-end gap-3">
                             <button class="btn btn-secondary"
@@ -45,7 +47,7 @@
                 <div class="modal-body">
 
                     <div id="visiMisiContent">
-    
+
                     </div>
                 </div>
                 <div class="modal-footer border-0">
