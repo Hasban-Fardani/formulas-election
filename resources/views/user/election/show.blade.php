@@ -15,8 +15,7 @@
                     <img src="{{ asset('storage/candidate/' . $candidate->image) }}" class="card-img-top img-candidate"
                         alt="Foto {{ $candidate->name }}">
                     <div class="card-body" style="word-wrap: break-word;max-width: 200px;">
-                        <h5 class="card-title text-truncate"
-                            style="max-width: 300px;word-wrap: break-word;overflow-wrap: break-word;">{{ $candidate->name }}
+                        <h5 class="card-title">{{ $candidate->name }}
                         </h5>
 
                         <div class="d-flex justify-content-end gap-3">
