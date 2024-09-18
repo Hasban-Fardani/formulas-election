@@ -15,7 +15,7 @@ class CandidateController extends Controller
             'name' => 'required|string',
             'leader_id' => 'nullable|exists:users,id',
             'co_leader_id' => 'nullable|exists:users,id',
-            'image' => 'required|image',
+            'image' => 'required',
             'number' => 'required|integer',
             'vision' => 'required|string',
             'mission' => 'required|string',

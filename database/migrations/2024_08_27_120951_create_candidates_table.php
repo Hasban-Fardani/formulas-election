@@ -16,8 +16,8 @@ return new class extends Migration
             $table->integer('number');
             $table->string('image')->nullable();
             $table->string('name');
-            $table->string('vision');
-            $table->string('mission');
+            $table->text('vision');
+            $table->text('mission');
             $table->foreignId('election_id')->constrained();
             $table->timestamps();
         });

@@ -21,7 +21,7 @@
             <form action="{{ route('admin.election.update', $election) }}" method="post">
                 @csrf
                 @method('put')
-                
+
                 <div class="mb-3">
                     <label for="title" class="form-label">Judul</label>
                     <input type="text" class="form-control" id="title" name="title" value="{{ $election->title }}"
@@ -74,7 +74,7 @@
                     @foreach ($candidates as $candidate)
                         <tr>
                             <th scope="row">{{ $candidate->number }}</th>
-                            <td><img src="{{ asset('storage/candidate/'.$candidate->image) }}" alt="kandidat" width="100" height="100"></td>
+                            <td><img src="{{ asset('storage/candidate/'.$candidate->image) }}" alt="kandidat" width="100"></td>
                             <td>{{ $candidate->name }}</td>
                             <td>{{ $candidate->vision }}</td>
                             <td>{!! $candidate->mission !!}</td>
