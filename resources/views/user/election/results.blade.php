@@ -28,6 +28,7 @@
 
 @push('js')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     <script>
         function exportChartToPDF() {
             const jsPDF = window.jspdf;
@@ -68,6 +69,7 @@
     <script>
         const ctx = document.getElementById('pieChart').getContext('2d');
         const chart = new Chart(ctx, {
+            plugins: [ChartDataLabels],
             type: 'pie',
             data: {!! json_encode($chartData) !!},
             options: {

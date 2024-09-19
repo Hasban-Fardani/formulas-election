@@ -38,6 +38,8 @@ class VotingController extends Controller
 
     public function results(Election $election)
     {
+        $election->loadCount('votes');
+
         $candidates = $election->candidates()->get();
         $data = $candidates->map(function ($candidate) {
             return [
