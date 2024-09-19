@@ -12,7 +12,7 @@ class VotingController extends Controller
 {
     public function show(Election $election)
     {
-        if (!Auth::user()->canVote($candidate->election)) {
+        if (!Auth::user()->canVote($election)) {
             return redirect()->route('user.home');
         }
 
@@ -26,7 +26,7 @@ class VotingController extends Controller
         if (!Auth::user()->canVote($candidate->election)) {
             return redirect()->route('user.home');
         }
-        
+
         Vote::create([
             'user_id' => Auth::user()->id,
             'candidate_id' => $candidate->id,
