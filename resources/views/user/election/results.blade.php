@@ -11,7 +11,7 @@
             <button class="btn btn-primary" onclick="exportChartToPDF()">Export PDF</button>
         </div>
 
-        <h2 class="text-center mt-3">{{ $election->title }}</h2>
+        <h2 class="text-center mt-3">Hasil {{ $election->title }}</h2>
 
         <div class="text-center">
             <p>Waktu: <span class="text-primary">{{ date('d-m-Y', strtotime($election->start_time)) }}</span> - <span
