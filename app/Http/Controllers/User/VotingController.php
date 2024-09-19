@@ -18,11 +18,14 @@ class VotingController extends Controller
 
     public function vote(Candidate $candidate)
     {
-        Vote::create([
-            'user_id' => Auth::user()->id,
-            'candidate_id' => $candidate->id,
-            'election_id' => $candidate->election_id
-        ]);
+        $candidate->load('election');
+        if (Auth::user()->canVote($candidate->election)) {
+            Vote::create([
+                'user_id' => Auth::user()->id,
+                'candidate_id' => $candidate->id,
+                'election_id' => $candidate->election_id
+            ]);
+        }
 
         return redirect()->route('user.home');
     }
