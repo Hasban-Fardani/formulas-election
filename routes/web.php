@@ -15,8 +15,8 @@ Route::middleware('auth')->group(function () {
             ->name('home');
         Route::get('election/{election}', [App\Http\Controllers\User\VotingController::class, 'show'])
             ->name('election.show');
-        Route::get('election/{election}/results', [App\Http\Controllers\User\VotingController::class, 'results'])
-            ->name('election.results');
+        // Route::get('election/{election}/results', [App\Http\Controllers\User\VotingController::class, 'results'])
+        //     ->name('election.results');  # deprecated
         Route::post('vote/{candidate}', [App\Http\Controllers\User\VotingController::class, 'vote'])
             ->name('vote');
     });
