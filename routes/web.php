@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', App\Http\Controllers\Admin\DasboardController::class)
             ->name('dashboard');
         Route::resource('election', App\Http\Controllers\Admin\ElectionController::class)
-            ->except(['create', 'destroy']);
+            ->except(['create']);
         Route::resource('user', App\Http\Controllers\Admin\UserController::class);
         Route::resource('candidate', App\Http\Controllers\Admin\CandidateController::class)
             ->only(['store', 'update', 'destroy']);

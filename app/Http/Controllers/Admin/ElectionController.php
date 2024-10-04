@@ -27,6 +27,7 @@ class ElectionController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'image' => 'required|image|max:2048',
             'title' => 'required|string',
             'start_time' => 'required|date',
             'end_time' => 'required|date',
@@ -37,6 +38,7 @@ class ElectionController extends Controller
         }
 
         $data = $validator->validated();
+        $data['image'] = $request->file('image')->store('public/election');
         Election::create($data);
 
         return redirect()->route('admin.election.index')->with('success', 'Pemilihan berhasil dibuat');
@@ -74,5 +76,11 @@ class ElectionController extends Controller
         $election->update($data);
 
         return redirect()->route('admin.election.index')->with('success', 'Pemilihan berhasil diperbarui');
+    }
+
+    public function destroy(Election $election)
+    {
+        $election->delete();
+        return redirect()->route('admin.election.index')->with('success', 'Pemilihan ' . $election->title . ' berhasil dihapus');
     }
 }

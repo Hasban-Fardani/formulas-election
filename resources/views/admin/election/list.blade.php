@@ -47,8 +47,13 @@
 
                 <div class="card bg-white">
                     <div class="card-body">
-                        <form action="{{ route('admin.election.store') }}" method="post">
+                        <form action="{{ route('admin.election.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
+
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Gambar</label>
+                                <input type="file" class="form-control" id="image" name="image">
+                            </div>
 
                             <div class="mb-3">
                                 <label for="title" class="form-label">Judul</label>

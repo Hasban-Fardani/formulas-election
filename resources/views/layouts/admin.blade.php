@@ -42,7 +42,7 @@
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
-                title: '{{ session('errors->first()') }}',
+                title: '{{ $errors->first() }}',
                 showConfirmButton: false,
                 timer: 1500
             })

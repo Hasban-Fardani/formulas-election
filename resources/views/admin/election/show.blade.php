@@ -5,6 +5,13 @@
         <h2 class="fw-bold">
             Detail Pemilihan: {{ $election->title }}
         </h2>
+
+        <form action="{{ route('admin.election.destroy', $election) }}" method="post">
+            @csrf
+            @method('delete')
+
+            <button type="submit" class="btn btn-danger">Hapus Pemilihan</button>
+        </form>
     </div>
 
     <div class="card bg-white mt-4">
